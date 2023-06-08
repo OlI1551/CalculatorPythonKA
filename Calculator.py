@@ -9,14 +9,15 @@ operator_quantity = a + b + c + d
 if operator_quantity != 1:
     print("throws exception")
 else:
+    num1 = ""
+    num2 = ""
+    operator = ""
     for i in range(len(data)):
-        if data[i] not in ['+', '-', '*', '/']:
-            continue
-        else:
+        if data[i] in ['+', '-', '*', '/']:
             num1 = data[:i]
             operator = data[i]
             num2 = data[i + 1:]
-
+            break
     if len(num1) <= 0 or len(num2) <= 0:
         print("throws exception")
     else:
@@ -26,11 +27,11 @@ else:
         if (num1 in "12345678910" and num1 != "") and (num2 in "12345678910" and num2 != ""):
             if operator == '+':
                 print(int(num1) + int(num2))
-            elif operator == '-':
+            elif operator == "-":
                 print(int(num1) - int(num2))
-            elif operator == '*':
+            elif operator == "*":
                 print(int(num1) * int(num2))
-            else:
+            elif operator == "/":
                 print(int(num1) // int(num2))
 
         elif (num1 in "IIIVIIIX" and num1 != "") and (num2 in "IIIVIIIX" and num2 != ""):
@@ -38,14 +39,14 @@ else:
                 'I': 1, 'II': 2, 'III': 3, 'IV': 4, 'V': 5,
                 'VI': 6, 'VII': 7, 'VIII': 8, 'IX': 9, 'X': 10
             }
-
-            if operator == '+':
+            result = 0
+            if operator == "+":
                 result = (num_roman[num1] + num_roman[num2])
-            elif operator == '-':
+            elif operator == "-":
                 result = (num_roman[num1] - num_roman[num2])
-            elif operator == '*':
+            elif operator == "*":
                 result = (num_roman[num1] * num_roman[num2])
-            else:
+            elif operator == "/":
                 result = (num_roman[num1] // num_roman[num2])
 
             if result < 1:
